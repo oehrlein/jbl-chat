@@ -20,7 +20,7 @@ Please submit your solution as a pull request to our public repository. Happy co
 
 ### Commands to Run
 ```
-# In case of virtual environment needs to be set up
+# In case virtual environment needs to be set up
 python3.9 -m venv venv
 source venv/bin/activate
 python -m pip install --upgrade pip
