@@ -1,0 +1,57 @@
+{% if result_list %}
+  <div class="divide-y divide-gray-300">
+    {% for result in result_list %}
+      <div class="px-2 py-3">
+        {% if type == "users" %}
+        <button
+          hx-get="{% url 'user-detail-api' result.user_id %}"
+          hx-target="next .user-detail"
+          hx-trigger="click once"
+          onclick="htmx.toggleClass(this.nextElementSibling, 'hidden');htmx.toggleClass(this.querySelector('svg'), 'rotate-180');"
+        {% elif type == "conversations" %}
+        <a href="{% url 'conversation' result.username %}"
+        {% endif %}
+        class="w-full text-left flex justify-between items-center">
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-white font-semibold">
+              {{ result.username|first|upper }}
+            </div>
+            <div class="ml-3">
+              <p class="text-md font-medium text-gray-900">
+                {{ result.username }}
+              </p>
+              {% if type == "conversations" %}
+                <div>
+                  <span class="text-md font-small text-gray-500">
+                    {{ result.content }}
+                  </span>
+                  <span class="text-md font-medium text-gray-500">
+                    &#x2022;
+                  </span>
+                  <span class="text-md font-small text-gray-500">
+                    Sent {{ result.created_at }}
+                  </span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 duration-300{% if type == 'conversations' %} -rotate-90{% endif %}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </{% if type == "users" %}button{% elif type == "conversations" %}a{% endif %}>
+        {% if type == "users" %}
+          <div class="user-detail hidden">
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="text-gray-500 text-center py-4">
+    {% if type == "users" %}
+      No other users found.
+    {% elif type == "conversations" %}
+      No conversations found. To start a conversation, click a user, then hit the message button!
+    {% endif %}
+  </p>
+{% endif %}

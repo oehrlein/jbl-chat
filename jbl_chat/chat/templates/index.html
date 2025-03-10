@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div id="user-data" class="p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">
+      Hey, {{ request.user.first_name }}!
+    </h1>
+    {% include "components/logout_button.html" %}
+  </div>
+  {% include "components/index_section.html" with result_list=users type="users" %}
+  {% include "components/index_section.html" with result_list=conversations type="conversations" %}
+</div>
+{% endblock %}

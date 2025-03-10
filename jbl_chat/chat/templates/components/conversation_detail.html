@@ -1,0 +1,31 @@
+<div class="flex flex-col h-[calc(100vh-8rem)] border-t md:px-20 py-4">
+  <div class="flex flex-col-reverse overflow-y-auto">
+    <div class="p-4" id="message-container">
+    {% if messages %}
+      {% for message in messages %}
+        {% include 'components/message_detail.html' %}
+      {% endfor %}
+    {% else %}
+      <div id="no-messages" class="text-center text-gray-500 pt-6 pb-10">
+        No messages yet. Start the conversation!
+      </div>
+    {% endif %}
+    </div>
+  </div>
+  <div class="bg-white p-4 border-t">
+    <form
+      class="flex"
+      hx-post="{% url 'message-api' partner_user_id %}"
+      hx-target="#message-container"
+      hx-swap="beforeend"
+      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+      hx-on="htmx:after-request: this.reset();const noMessages = document.getElementById('no-messages'); if (noMessages) noMessages.remove();document.getElementById('message-container').scrollIntoView(false);"
+      >
+      {% csrf_token %}
+      <input type="text" name="content" placeholder="Type a message..." class="flex-1 border rounded-l-lg p-2 transition duration-400 ease-in focus:outline-none focus:border-b focus:border-gray-800" required>
+      <button type="submit" class="bg-gray-800 hover:opacity-75 duration-300 text-white px-6 rounded-r-lg">
+        Send
+      </button>
+    </form>
+  </div>
+</div>

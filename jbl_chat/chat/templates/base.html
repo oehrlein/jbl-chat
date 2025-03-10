@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %} | JBL Chat</title>
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+</head>
+<body class="bg-white min-h-screen">
+  <div id="main-container" class="container mx-auto p-4" hx-boost="true">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>

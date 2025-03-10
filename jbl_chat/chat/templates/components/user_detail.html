@@ -1,0 +1,61 @@
+<div class="bg-white border-t border-gray-200 mt-5 p-6">
+  <div class="mb-4">
+    <h3 class="text-lg font-bold text-gray-800">
+      Details
+    </h3>
+  </div>
+  <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center space-x-4">
+      <div class="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+        {{ user_data.username|first|upper }}
+      </div>
+      <div class="ml-4">
+        <h4 class="text-xl font-semibold text-gray-900">
+          {{ user_data.username }}
+        </h4>
+        <p class="text-gray-600">
+          {{ user_data.email }}
+        </p>
+      </div>
+    </div>
+    <a href="{% url 'conversation' user_data.username %}" class="bg-gray-800 hover:opacity-75 duration-300 text-white font-bold px-4 py-2 rounded focus:outline-none focus:shadow-outline">
+      Message
+    </a>
+  </div>
+  <div class="border-t border-gray-200 pt-4 mt-4">
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <p class="text-sm text-gray-500">
+          First Name
+        </p>
+        <p class="font-medium">
+          {{ user_data.first_name }}
+        </p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">
+          Last Name
+        </p>
+        <p class="font-medium">
+          {{ user_data.last_name }}
+        </p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">
+          Date Joined
+        </p>
+        <p class="font-medium">
+          {{ user_data.date_joined|date:"F j, Y" }}
+        </p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">
+          Last Login
+        </p>
+        <p class="font-medium">
+          {{ user_data.last_login|date:"F j, Y"|default:"Never" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

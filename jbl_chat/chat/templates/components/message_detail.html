@@ -1,0 +1,10 @@
+<div class="mb-4{% if force_sender_format or message.sender.username == request.user.username %} flex justify-end{% endif %}">
+  <div class="{% if force_sender_format or message.sender.username == request.user.username %}bg-gray-800 text-white{% else %}bg-white border{% endif %} rounded-lg p-3 w-[40%] lg:w-[30%]">
+    <p>
+      {{ message.content }}
+    </p>
+    <p class="text-xs {% if force_sender_format or message.sender.username == request.user.username %}text-gray-400{% else %}text-gray-500{% endif %} text-right mt-1">
+      {{ message.created_at }}
+    </p>
+  </div>
+</div>
