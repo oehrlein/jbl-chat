@@ -1,6 +1,6 @@
 <div class="flex flex-col h-[calc(100vh-8rem)] border-t md:px-20 py-4">
   <div class="flex flex-col-reverse overflow-y-auto">
-    <div class="p-4" id="message-container">
+    <div id="message-container" class="min-h-[144px] md:min-h-[120px] py-4 md:px-4">
     {% if messages %}
       {% for message in messages %}
         {% include 'components/message_detail.html' %}
@@ -12,7 +12,7 @@
     {% endif %}
     </div>
   </div>
-  <div class="bg-white p-4 border-t">
+  <div class="bg-white py-4 md:px-4 border-t">
     <form
       class="flex"
       hx-post="{% url 'message-api' partner_user_id %}"

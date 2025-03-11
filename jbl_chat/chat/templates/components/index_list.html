@@ -16,7 +16,7 @@
             <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-white font-semibold">
               {{ result.username|first|upper }}
             </div>
-            <div class="ml-3">
+            <div class="ml-3{% if type == "conversations" %} flex-auto w-[50%] sm:w-[80%]{% endif %}">
               <p class="text-md font-medium text-gray-900">
                 {{ result.username }}
               </p>
@@ -25,11 +25,11 @@
                   <span class="text-md font-small text-gray-500">
                     {{ result.content }}
                   </span>
-                  <span class="text-md font-medium text-gray-500">
+                  <span class="text-md font-medium text-gray-500 hidden sm:inline">
                     &#x2022;
                   </span>
-                  <span class="text-md font-small text-gray-500">
-                    Sent {{ result.created_at }}
+                  <span class="text-md font-small text-gray-500 block sm:inline">
+                    Sent: {{ result.created_at }}
                   </span>
                 </div>
               {% endif %}

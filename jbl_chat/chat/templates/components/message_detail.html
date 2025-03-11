@@ -1,5 +1,5 @@
 <div class="mb-4{% if force_sender_format or message.sender.username == request.user.username %} flex justify-end{% endif %}">
-  <div class="{% if force_sender_format or message.sender.username == request.user.username %}bg-gray-800 text-white{% else %}bg-white border{% endif %} rounded-lg p-3 w-[40%] lg:w-[30%]">
+  <div class="{% if force_sender_format or message.sender.username == request.user.username %}bg-gray-800 text-white{% else %}bg-white border{% endif %} rounded-lg p-3 w-[80%] sm:w-[40%] lg:w-[30%]">
     <p>
       {{ message.content }}
     </p>

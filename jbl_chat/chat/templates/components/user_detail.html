@@ -1,24 +1,24 @@
-<div class="bg-white border-t border-gray-200 mt-5 p-6">
+<div class="bg-white border-t border-gray-200 mt-5 py-2 md:p-6">
   <div class="mb-4">
     <h3 class="text-lg font-bold text-gray-800">
       Details
     </h3>
   </div>
-  <div class="flex items-center justify-between mb-4">
+  <div class="flex items-center justify-between mb-4 flex-wrap">
     <div class="flex items-center space-x-4">
-      <div class="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+      <div class="w-12 md:w-16 h-12 md:h-16 bg-gray-400 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold">
         {{ user_data.username|first|upper }}
       </div>
       <div class="ml-4">
-        <h4 class="text-xl font-semibold text-gray-900">
+        <h4 class="text-l md:text-xl font-semibold text-gray-900">
           {{ user_data.username }}
         </h4>
-        <p class="text-gray-600">
+        <p class="text-sm text-gray-600">
           {{ user_data.email }}
         </p>
       </div>
     </div>
-    <a href="{% url 'conversation' user_data.username %}" class="bg-gray-800 hover:opacity-75 duration-300 text-white font-bold px-4 py-2 rounded focus:outline-none focus:shadow-outline">
+    <a href="{% url 'conversation' user_data.username %}" class="bg-gray-800 hover:opacity-75 duration-300 text-white text-center font-bold px-4 py-2 mt-4 mx-4 sm:mt-0 sm:mr-0 w-full sm:w-[110px] rounded focus:outline-none focus:shadow-outline">
       Message
     </a>
   </div>
@@ -28,7 +28,7 @@
         <p class="text-sm text-gray-500">
           First Name
         </p>
-        <p class="font-medium">
+        <p class="text-sm font-medium">
           {{ user_data.first_name }}
         </p>
       </div>
@@ -36,7 +36,7 @@
         <p class="text-sm text-gray-500">
           Last Name
         </p>
-        <p class="font-medium">
+        <p class="text-sm font-medium">
           {{ user_data.last_name }}
         </p>
       </div>
@@ -44,7 +44,7 @@
         <p class="text-sm text-gray-500">
           Date Joined
         </p>
-        <p class="font-medium">
+        <p class="text-sm font-medium">
           {{ user_data.date_joined|date:"F j, Y" }}
         </p>
       </div>
@@ -52,7 +52,7 @@
         <p class="text-sm text-gray-500">
           Last Login
         </p>
-        <p class="font-medium">
+        <p class="text-sm font-medium">
           {{ user_data.last_login|date:"F j, Y"|default:"Never" }}
         </p>
       </div>

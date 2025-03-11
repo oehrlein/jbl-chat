@@ -3,16 +3,16 @@
 {% block title %}Conversation with {{ user_data.first_name }} {{ user_data.last_name }}{% endblock %}
 
 {% block content %}
-<div class="p-6">
-  <div class="flex justify-between items-center mb-6">
-    <div class="flex items-center space-x-4">
-      <a href="/" class="mr-4 text-gray-800">
+<div class="py-3 md:px-6 md:py-6">
+  <div class="flex justify-between items-center -mx-3 mb-6 sm:mx-0">
+    <div class="flex items-center">
+      <a href="/" class="mr-2 sm:mr-4 text-gray-800">
           &larr; Back
       </a>
       <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-white font-semibold">
         {{ user_data.username|first|upper }}
       </div>
-      <div class="ml-3">
+      <div class="ml-1 md:ml-3">
         <h2>
           {{ user_data.first_name }} {{ user_data.last_name }}
         </h2>
