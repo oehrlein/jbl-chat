@@ -47,6 +47,6 @@ The following usernames are loaded from the fixtures:
 - sarahjohnson
 
 Notes:
-- All users have the password: **"password"**.
+- All users use the password: **password**
 - **davidjones** and **jamessmith** have exchanged messages, as have **davidjones** and **marybrown**.
 - All other users have no messages.
